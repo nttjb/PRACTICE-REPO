@@ -1,0 +1,102 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\> cd practice
+cd : Cannot find path 'C:\practice' because it does not exist.
+At line:1 char:1
++ cd practice
++ ~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\practice:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\> cd GitPrac
+PS C:\GitPrac> git init
+Initialized empty Git repository in C:/GitPrac/.git/
+PS C:\GitPrac> git clone https://github.com/GABBB-AMEN/project1.git
+Cloning into 'project1'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (7/7), done.
+PS C:\GitPrac> echo Hi Papa > practiceFile.txt
+PS C:\GitPrac> mkdir PracticeFolder
+
+
+    Directory: C:\GitPrac
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        18/09/2025   9:36 pm                PracticeFolder
+
+
+PS C:\GitPrac> echo content > PracticeFolde\practiceFile.txt
+out-file : Could not find a part of the path 'C:\GitPrac\PracticeFolde\practiceFile.txt'.
+At line:1 char:1
++ echo content > PracticeFolde\practiceFile.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+PS C:\GitPrac> echo Some content > myfolder\notes.txt
+out-file : Could not find a part of the path 'C:\GitPrac\myfolder\notes.txt'.
+At line:1 char:1
++ echo Some content > myfolder\notes.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+PS C:\GitPrac> echo content > PracticeFolder\practiceFile.txt
+PS C:\GitPrac> mkdir PracticeFolder
+mkdir : An item with the specified name C:\GitPrac\PracticeFolder already exists.
+At line:1 char:1
++ mkdir PracticeFolder
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\GitPrac\PracticeFolder:String) [New-Item], IOException
+    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
+
+PS C:\GitPrac> echo content > PracticeFolder\practiceFile.txt
+PS C:\GitPrac> git add .
+warning: adding embedded git repository: project1
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> project1
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached project1
+hint:
+hint: See "git help submodule" for more information.
+hint: Disable this message with "git config advice.addEmbeddedRepo false"
+PS C:\GitPrac> git commit -m "Added a new file/folder"
+[master (root-commit) 9ab0bbb] Added a new file/folder
+ 3 files changed, 1 insertion(+)
+ create mode 100644 PracticeFolder/practiceFile.txt
+ create mode 100644 practiceFile.txt
+ create mode 160000 project1
+PS C:\GitPrac> git push origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'origin'
+PS C:\GitPrac> git pull origin main
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\GitPrac> git pull origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\GitPrac> git push origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'origin'
+PS C:\GitPrac>
